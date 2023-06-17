@@ -1,0 +1,21 @@
+<footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - eBookStall 
+        </div>
+    </footer>
+    <p class="card-text ">
+        <b>Status: </b>
+        @if (DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
+        {
+            <span class="badge bg-success text-white">AVAILABLE</span>
+        }
+        else if (DateTime.Now > item.EndDate)
+        {
+            <span class="badge bg-danger text-white">EXPIRED</span>
+        }
+        else
+        {
+            <span class="badge bg-primary text-white">UPCOMING</span>
+        }
+    </p>
+    @await Html.PartialAsync("_CreateItem", "Books") 
